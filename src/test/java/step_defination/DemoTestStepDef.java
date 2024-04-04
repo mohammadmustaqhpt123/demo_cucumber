@@ -21,7 +21,7 @@ public class DemoTestStepDef {
 	@Given("Open the browser")
 	public void open_the_browser() {
 		ChromeOptions options = new ChromeOptions();
-//		options.addArguments("--headless=new");
+		options.addArguments("--headless=new");
 		driver = new ChromeDriver(options);
 		System.out.println("------------------------Browser Started----------------");
 	}
