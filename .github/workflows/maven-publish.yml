@@ -1,0 +1,43 @@
+name: Regression_BV_Analytics
+on:
+  #  schedule:
+  #   # - cron: "30 13 19 12 2"
+  #    - cron: "30 4 * * 2"
+
+ push:
+   branches: [ "master" ]
+#  pull_request:
+#    branches: [ "master" ]
+
+jobs:
+  job1:
+    timeout-minutes: 90
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1- Checkout main branch from GitHub
+        uses: actions/checkout@v3
+
+      - name: Step 2- Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Step 3- Have GitHub Actions build maven Project
+        run : mvn test
+
+      - name: Set up timestamp
+        id : timestamp
+        run: echo "::set-output name=timestamp::$(date -u +'%Y-%m-%dT%H-%M-%SZ')"
+
+      - name: Upload Artifact
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: Regression_BV_Analytics-${{ steps.timestamp.outputs.timestamp }}
+          path: target/test-output
+
+      - name: Set output for depedency
+        run: echo "{name}={value}" >> $env:GITHUB_OUTPUT
+        # run: echo $NOW
