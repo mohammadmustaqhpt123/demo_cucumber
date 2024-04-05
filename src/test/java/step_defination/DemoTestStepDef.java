@@ -8,6 +8,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeDriverInfo;
+import org.openqa.selenium.edge.EdgeOptions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -20,9 +23,14 @@ public class DemoTestStepDef {
 
 	@Given("Open the browser")
 	public void open_the_browser() {
-		ChromeOptions options = new ChromeOptions();
-//		options.addArguments("--headless=new");
-		driver = new ChromeDriver(options);
+		EdgeOptions options = new EdgeOptions();
+		options.addArguments("--headless=new");
+//		options.setCapability("headless", true );
+		driver = new EdgeDriver(options);
+		
+//		ChromeOptions option = new ChromeOptions();
+//		option.addArguments("--headless=new");
+//		driver = new ChromeDriver();
 		System.out.println("------------------------Browser Started----------------");
 	}
 
