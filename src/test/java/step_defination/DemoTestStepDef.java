@@ -24,7 +24,7 @@ public class DemoTestStepDef {
 	@Given("Open the browser")
 	public void open_the_browser() {
 		EdgeOptions options = new EdgeOptions();
-		options.addArguments("--headless=new");
+//		options.addArguments("--headless=new");
 //		options.setCapability("headless", true );
 		driver = new EdgeDriver(options);
 		
