@@ -23,14 +23,14 @@ public class DemoTestStepDef {
 
 	@Given("Open the browser")
 	public void open_the_browser() {
-		EdgeOptions options = new EdgeOptions();
-//		options.addArguments("--headless=new");
-//		options.setCapability("headless", true );
-		driver = new EdgeDriver(options);
+//		EdgeOptions options = new EdgeOptions();
+////		options.addArguments("--headless=new");
+////		options.setCapability("headless", true );
+//		driver = new EdgeDriver(options);
 		
-//		ChromeOptions option = new ChromeOptions();
-//		option.addArguments("--headless=new");
-//		driver = new ChromeDriver();
+		ChromeOptions option = new ChromeOptions();
+		option.addArguments("--headless=new");
+		driver = new ChromeDriver(option);
 		System.out.println("------------------------Browser Started----------------");
 	}
 
