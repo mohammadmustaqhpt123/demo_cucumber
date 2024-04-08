@@ -29,7 +29,7 @@ public class DemoTestStepDef {
 //		driver = new EdgeDriver(options);
 		
 		ChromeOptions option = new ChromeOptions();
-		option.addArguments("--headless=new");
+//		option.addArguments("--headless=new");
 		driver = new ChromeDriver(option);
 		System.out.println("------------------------Browser Started----------------");
 	}
