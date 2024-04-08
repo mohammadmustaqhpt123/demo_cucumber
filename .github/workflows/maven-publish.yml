@@ -12,7 +12,7 @@ on:
 jobs:
   job1:
     timeout-minutes: 90
-    runs-on: window-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Step 1- Checkout main branch from GitHub
         uses: actions/checkout@v3
