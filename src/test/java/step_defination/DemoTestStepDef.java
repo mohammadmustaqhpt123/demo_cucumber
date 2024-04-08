@@ -30,25 +30,33 @@ public class DemoTestStepDef {
 	@Given("Open the browser")
 	public void open_the_browser() {
 //		EdgeOptions options = new EdgeOptions();
-////		options.addArguments("--headless=new");
-////		options.setCapability("headless", true );
-//		driver = new EdgeDriver(options);
-		WebDriverManager.chromedriver().setup();
-//		System.setProperty("webdriver.chrome.driver", "C:\\Users\\MUSTMOHA\\Downloads\\chromedriver-win32 (5)\\chromedriver-win32\\chromedriver.exe");
-		ChromeOptions options = new ChromeOptions();
 //		options.addArguments("--headless=new");
-//		options.addArguments("window-size=1280,800");
+//		options.setCapability("headless", true );
+//		driver = new EdgeDriver(options);
+//		WebDriverManager.chromedriver().setup();
+////		System.setProperty("webdriver.chrome.driver", "C:\\Users\\MUSTMOHA\\Downloads\\chromedriver-win32 (5)\\chromedriver-win32\\chromedriver.exe");
+//		ChromeOptions options = new ChromeOptions();
+//		options.addArguments("--headless=new");
+//		options.addArguments("window-size=10240,780");
 //		options.addArguments("--disable-gpu");
-//		options.setHeadless(true);
-		driver = new ChromeDriver(options);
-//	    WebDriverManager.firefoxdriver().setup();
-//		FirefoxOptions firefoxOptions = new FirefoxOptions();
-//        firefoxOptions.addArguments("--headless");  // Run Firefox in headless mode
+//		options.addArguments("--no-sandbox");
+//		options.addArguments("--headless");
+////		options.setHeadless(true);
+//		driver = new ChromeDriver(options);
+	    WebDriverManager.firefoxdriver().setup();
+		FirefoxOptions firefoxOptions = new FirefoxOptions();
+        firefoxOptions.addArguments("--headless");  // Run Firefox in headless mode
         
-        // Set up Firefox WebDriver
+//         Set up Firefox WebDriver
     
-//        driver = new FirefoxDriver(firefoxOptions);
+        driver = new FirefoxDriver(firefoxOptions);
 
+//		EdgeOptions edgeOptions = new EdgeOptions();
+//        edgeOptions.setCapability("--headless");
+//        
+//        // Set up Edge WebDriver
+//        WebDriverManager.edgedriver().setup();
+//        driver = new EdgeDriver(edgeOptions);
 		
 		
 		System.out.println("------------------------Browser Started----------------");
