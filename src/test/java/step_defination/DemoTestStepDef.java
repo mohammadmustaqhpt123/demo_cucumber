@@ -33,23 +33,24 @@ public class DemoTestStepDef {
 //		options.addArguments("--headless=new");
 //		options.setCapability("headless", true );
 //		driver = new EdgeDriver(options);
-//		WebDriverManager.chromedriver().setup();
+		WebDriverManager.chromedriver().setup();
 ////		System.setProperty("webdriver.chrome.driver", "C:\\Users\\MUSTMOHA\\Downloads\\chromedriver-win32 (5)\\chromedriver-win32\\chromedriver.exe");
-//		ChromeOptions options = new ChromeOptions();
+		ChromeOptions options = new ChromeOptions();
+		options.setHeadless(true);
 //		options.addArguments("--headless=new");
 //		options.addArguments("window-size=10240,780");
 //		options.addArguments("--disable-gpu");
 //		options.addArguments("--no-sandbox");
 //		options.addArguments("--headless");
 ////		options.setHeadless(true);
-//		driver = new ChromeDriver(options);
-	    WebDriverManager.firefoxdriver().setup();
-		FirefoxOptions firefoxOptions = new FirefoxOptions();
-        firefoxOptions.addArguments("--headless");  // Run Firefox in headless mode
+		driver = new ChromeDriver(options);
+//	    WebDriverManager.firefoxdriver().setup();
+//		FirefoxOptions firefoxOptions = new FirefoxOptions();
+//        firefoxOptions.addArguments("--headless");  // Run Firefox in headless mode
         
 //         Set up Firefox WebDriver
     
-        driver = new FirefoxDriver(firefoxOptions);
+//        driver = new FirefoxDriver(firefoxOptions);
 
 //		EdgeOptions edgeOptions = new EdgeOptions();
 //        edgeOptions.setCapability("--headless");
