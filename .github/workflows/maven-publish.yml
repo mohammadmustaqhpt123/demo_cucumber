@@ -24,6 +24,10 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
+      - name: Update Linux
+        run : sudo apt-get update
+      - name: Start Xvfb
+        run : Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
       - name: Step 3- Have GitHub Actions build maven Project
         run : mvn test
 
