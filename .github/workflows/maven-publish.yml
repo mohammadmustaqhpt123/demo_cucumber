@@ -1,13 +1,8 @@
 name: Regression_BV_Analytics
-on:
-  #  schedule:
-  #   # - cron: "30 13 19 12 2"
-  #    - cron: "30 4 * * 2"
 
- push:
-   branches: [ "master" ]
-#  pull_request:
-#    branches: [ "master" ]
+on:
+  push:
+    branches: [ "master" ]
 
 jobs:
   job1:
@@ -25,23 +20,30 @@ jobs:
           cache: maven
 
       - name: Update Linux
-        run : sudo apt-get update
-      - name: Start Xvfb
-        run : Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-      - name: Step 3- Have GitHub Actions build maven Project
-        run : mvn test
+        run: sudo apt-get update
+
+      - name: Install Chrome
+        run: |
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo dpkg -i google-chrome-stable_current_amd64.deb
+          sudo apt-get -f install
+
+      - name: Install ChromeDriver
+        run: |
+          wget https://chromedriver.storage.googleapis.com/98.0.4758.102/chromedriver_linux64.zip
+          unzip chromedriver_linux64.zip
+          sudo mv chromedriver /usr/local/bin/
+
+      - name: Step 3- Have GitHub Actions build Maven Project
+        run: mvn test
 
       - name: Set up timestamp
-        id : timestamp
+        id: timestamp
         run: echo "::set-output name=timestamp::$(date -u +'%Y-%m-%dT%H-%M-%SZ')"
 
       - name: Upload Artifact
-        if: ${{ always() }}
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: Regression_BV_Analytics-${{ steps.timestamp.outputs.timestamp }}
           path: target/test-output
-
-      - name: Set output for depedency
-        run: echo "{name}={value}" >> $env:GITHUB_OUTPUT
-        # run: echo $NOW
