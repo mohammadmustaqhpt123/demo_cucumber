@@ -33,12 +33,12 @@ public class DemoTestStepDef {
 //		options.addArguments("--headless=new");
 //		options.setCapability("headless", true );
 //		driver = new EdgeDriver(options);
-		try {
-			MyScreenRecorder.startRecording("Test1");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			MyScreenRecorder.startRecording("Test1");
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		WebDriverManager.chromedriver().setup();
 ////		System.setProperty("webdriver.chrome.driver", "C:\\Users\\MUSTMOHA\\Downloads\\chromedriver-win32 (5)\\chromedriver-win32\\chromedriver.exe");
 		ChromeOptions options = new ChromeOptions();
@@ -95,12 +95,12 @@ public class DemoTestStepDef {
 	@Then("Close the browser")
 	public void close_the_browser() {
 	   driver.quit();
-	   try {
-		MyScreenRecorder.stopRecording();
-	} catch (Exception e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+//	   try {
+//		MyScreenRecorder.stopRecording();
+//	} catch (Exception e) {
+//		// TODO Auto-generated catch block
+//		e.printStackTrace();
+//	}
 	}
 
 }
